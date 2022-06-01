@@ -10,7 +10,7 @@ public class Journal extends Publication {
 
     @Override
     public String print() {
-        return "Journal{" + super.print() + " , number = " + number + ", year " + publicationYear;
+        return "Journal{" + super.print() + " , number = " + number + ", year " + publicationYear + " }";
     }
 }
 // Journal{name=<название_журнала>,countPages=<количество_страниц>,number=<номер_журнала>,year=<год_публикации>}
