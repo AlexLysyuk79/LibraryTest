@@ -19,16 +19,20 @@ public class Main {
 //
 //        Publication[] pArray = {};
 
-        Library library = new Library();
-        System.out.println("\nLibrary created >>>>>>>>>>>>>");
-      library.printPublications(null);
-      library.printPublications(new Publication[0]);
-      library.printPublications(new Publication[]{new Journal("PC", 100, 1, 2021)});
-      library.printPublications(new Publication[]{new Book("Witcher", 200, "Andrzej Sapkowski")});
-      library.printPublications(new Publication[]{new Book("Master & Margarita", 300, "Mikhail Bulgakov"),
-              new Journal("Gamer", 101, 10, 2018)});
+//        Library library = new Library();
+//        System.out.println("\nLibrary created >>>>>>>>>>>>>");
+//      library.printPublications(null);
+//      library.printPublications(new Publication[0]);
+//      library.printPublications(new Publication[] {new Journal("PC", 100, 1, 2021)});
+//      library.printPublications(new Publication[]{new Book("Witcher", 200, "Andrzej Sapkowski")});
+//      library.printPublications(new Publication[]{new Book("Master & Margarita", 300, "Mikhail Bulgakov"),
+//              new Journal("Gamer", 101, 10, 2018)});
 
+      Repository repository = new Repository(1);
 
+        System.out.println("Repository Created");
+        repository.addPublication (new Journal("PC", 100, 1, 2021));
+        repository.addPublication (new Journal("PC", 100, 1, 2021));
 
 
     }
