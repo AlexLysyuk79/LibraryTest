@@ -7,7 +7,8 @@ public class Library {
         for (Publication publication: publications) {
             System.out.println(publication.print());
         }
-
+    }
+    public void addBook (Publication[] publications, Book book){
 
     }
 }

@@ -1,39 +1,43 @@
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
+    private static final String HELP_COMMAND = "help";
+    private static final String EXIT_COMMAND = "exit";
+    private static final String ADD_BOOK_COMMAND = "add";
+
 
 
     public static void main(String[] args) {
-//     Publication publication = new Publication("Book",60);
-//     System.out.println("publication created >>>>>>>>>>>>>");
-//     System.out.println(publication.print());
-//
-//        Book book = new Book("nazvanie",500, "AuthorBooks");
-//        System.out.println("\nBook created >>>>>>>>>>>>>");
-//        System.out.println(book.print());
-//
-//        Journal journal = new Journal("Around the world", 345, 2, 1979);
-//        System.out.println("\nJournal created >>>>>>>>>>>>>");
-//        System.out.println(journal.print());
-//
-//        Publication[] pArray = {};
+        String input;
+        Scanner scanner = new Scanner(System.in);
+        Repository repository = new Repository();
 
-//        Library library = new Library();
-//        System.out.println("\nLibrary created >>>>>>>>>>>>>");
-//      library.printPublications(null);
-//      library.printPublications(new Publication[0]);
-//      library.printPublications(new Publication[] {new Journal("PC", 100, 1, 2021)});
-//      library.printPublications(new Publication[]{new Book("Witcher", 200, "Andrzej Sapkowski")});
-//      library.printPublications(new Publication[]{new Book("Master & Margarita", 300, "Mikhail Bulgakov"),
-//              new Journal("Gamer", 101, 10, 2018)});
-
-      Repository repository = new Repository(1);
-
-        System.out.println("Repository Created");
-        repository.addPublication (new Journal("PC", 100, 1, 2021));
-        repository.addPublication (new Journal("PC", 100, 1, 2021));
-
+        label:
+        while (true) {
+            System.out.println("waiting for input");
+            input = scanner.nextLine();
+            switch (input) {
+                case HELP_COMMAND:
+                    System.out.println("enter HELP to see all Commands");
+                    System.out.println("enter EXIT to Exit");
+                    System.out.println("enter " + ADD_BOOK_COMMAND + " to add a Book");
+                    break;
+                case ADD_BOOK_COMMAND:
+                    System.out.println("Now we try to add new book");
+                    BookService bookService = new BookService(repository);
+                    bookService.addBookToRepository(scanner);
+                    break label;
+                case EXIT_COMMAND:
+                    System.out.println("buy");
+                    break label;
+                default:
+                    System.out.println("Command not found");
+                    break;
+            }
+        }
+        scanner.close();
+        repository.printAll();
+        repository.arrayToString();
 
     }
 }
